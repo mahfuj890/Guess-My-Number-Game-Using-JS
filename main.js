@@ -11,7 +11,6 @@ let devButton = document.querySelector(".devButton");
 numberValue.textContent = "?";
 let checkButton = document.querySelector(".check");
 
-
 //Click Event
 if (checkButton) {
   checkButton.addEventListener("click", () => {
@@ -68,6 +67,10 @@ document.querySelector(".again").addEventListener("click", () => {
 //Display Number For Developer
 if (devButton) {
   devButton.addEventListener("click", () => {
-    numberValue.textContent = randomNumber;
+    if (numberValue.textContent == "?") {
+      numberValue.textContent = randomNumber;
+    } else if (numberValue.textContent == randomNumber) {
+      numberValue.textContent = "?";
+    }
   });
 }

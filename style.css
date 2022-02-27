@@ -76,10 +76,13 @@ h1 {
   right: 2rem;
 }
 
-.again {
+.button_area {
   position: absolute;
   top: 2rem;
   left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .guess {

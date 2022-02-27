@@ -19,37 +19,33 @@ if (checkButton) {
       messageText.textContent = "⚙ No Number";
     } else if (guessValue < 0) {
       alert("Please Enter A Positive Number!!");
-      guessValue.value = "";
     } else if (guessValue === randomNumber) {
       messageText.textContent = "🔓 Correct Number";
       document.querySelector("body").style.cssText =
         "background-color: #60b347;";
-        numberValue.textContent = randomNumber;
+      numberValue.textContent = randomNumber;
       document.querySelector(".number").style.cssText =
         "width:30rem;color:white;background: #f30f0f ";
-        devButton.disabled= true;
+      devButton.disabled = true;
       highScore += scoreValue;
       document.querySelector(".highscore").textContent = highScore;
     } else if (guessValue > randomNumber) {
-      if (scoreValue > 1) {
-        messageText.textContent = "🔐 Too High";
-        scoreValue--;
-        score.textContent = scoreValue;
-      } else {
-        messageText.textContent = "🔏 You Lose The Game";
-        score.textContent = 0;
-      }
+      displayMessage("🔐 Too High", "🔏 You Lose The Game");
     } else if (guessValue < randomNumber) {
-      if (scoreValue > 1) {
-        messageText.textContent = "🔐 Too Low";
-        scoreValue--;
-        score.textContent = scoreValue;
-      } else {
-        messageText.textContent = "🔏 You Lose The Game";
-        score.textContent = 0;
-      }
+      displayMessage("🔐 Too Low", "🔏 You Lose The Game");
     }
   });
+}
+
+function displayMessage(valueText, loseText) {
+  if (scoreValue > 1) {
+    messageText.textContent = valueText;
+    scoreValue--;
+    score.textContent = scoreValue;
+  } else {
+    messageText.textContent = loseText;
+    score.textContent = 0;
+  }
 }
 
 //Run Radmon Number Again Without Page Reload
@@ -64,8 +60,8 @@ document.querySelector(".again").addEventListener("click", () => {
   document.querySelector(".guess").value = "";
   document.querySelector("body").style.cssText = "background-color: #222;";
   document.querySelector(".number").style.cssText = "width:15rem;";
-  if(devButton.disabled== true){
-    devButton.disabled= false;
+  if (devButton.disabled == true) {
+    devButton.disabled = false;
   }
 });
 

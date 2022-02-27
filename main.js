@@ -24,8 +24,10 @@ if (checkButton) {
       messageText.textContent = "🔓 Correct Number";
       document.querySelector("body").style.cssText =
         "background-color: #60b347;";
+        numberValue.textContent = randomNumber;
       document.querySelector(".number").style.cssText =
         "width:30rem;color:white;background: #f30f0f ";
+        devButton.disabled= true;
       highScore += scoreValue;
       document.querySelector(".highscore").textContent = highScore;
     } else if (guessValue > randomNumber) {
@@ -62,6 +64,9 @@ document.querySelector(".again").addEventListener("click", () => {
   document.querySelector(".guess").value = "";
   document.querySelector("body").style.cssText = "background-color: #222;";
   document.querySelector(".number").style.cssText = "width:15rem;";
+  if(devButton.disabled== true){
+    devButton.disabled= false;
+  }
 });
 
 //Display Number For Developer
